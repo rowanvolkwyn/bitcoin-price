@@ -2,7 +2,7 @@ const priceElement = document.getElementById('bitcoin-price');
 
 async function fetchBitcoinPrice() {
     try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd,aud&include_24hr_change=true');
         const data = await response.json();
         const bitcoinPrice = data.bitcoin.usd;
         priceElement.textContent = `Price: $${bitcoinPrice}`;
